@@ -25,6 +25,15 @@ $(document).ready(function(){
       }
     })
 
+    Swal.fire({
+      title: 'Hai aggiunto l\'impegno ' + nuovo_impegno,
+      text: nuovo_impegno + ' fa ora parte della tua lista',
+      imageUrl: 'https://www.overthinkingit.com/wp-content/uploads/2010/01/terminator_t2_judgment_day_thumbs_up_01-590x251.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      animation: false
+    })
   })
 
   // intercetto il click sulla x di un impegno in lista per cancellarlo
@@ -42,6 +51,15 @@ $(document).ready(function(){
       'error': function(res){
         alert('Errore');
       }
+    })
+    Swal.fire({
+      title: 'Impegno cancellato!',
+      // text: 'Tu non hai visto niente ',
+      imageUrl: 'https://i.ytimg.com/vi/aEJVMre-AyY/maxresdefault.jpg',
+      imageWidth: 412,
+      imageHeight: 232,
+      imageAlt: 'Custom image',
+      animation: false
     })
 
   });
@@ -68,6 +86,15 @@ $(document).ready(function(){
       'error': function(res){
         alert('Errore');
       }
+    })
+    Swal.fire({
+      title: 'Impegno modificato!',
+      text: 'Il nuovo impegno è ora ' + nuovotesto,
+      imageUrl: 'https://mducoing.files.wordpress.com/2015/07/terminator-genisys-photo-552bc861d9acb.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      animation: false
     })
 
   })
