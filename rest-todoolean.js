@@ -91,8 +91,8 @@ $(document).ready(function(){
       title: 'Impegno modificato!',
       text: 'Il nuovo impegno è ora ' + nuovotesto,
       imageUrl: 'https://mducoing.files.wordpress.com/2015/07/terminator-genisys-photo-552bc861d9acb.jpg',
-      imageWidth: 400,
-      imageHeight: 200,
+      imageWidth: 412,
+      imageHeight: 232,
       imageAlt: 'Custom image',
       animation: false
     })
