@@ -44,7 +44,7 @@ var template = Handlebars.compile(source);
         console.log(data);
         for (var i = 0; i<data.length; i++) {
           console.log(data[i].text);
-          $('.container').append('<br>' + '<i class="far fa-window-close"></i> ' + data[i].text + '</br>');
+          $('.container').append('<li><span><i class="far fa-window-close"></i></span> ' + data[i].text + '</li>');
         }
 
       },
