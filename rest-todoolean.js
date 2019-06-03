@@ -60,7 +60,7 @@ var template = Handlebars.compile(source);
 
         console.log(data);
         for (var i = 0; i<data.length; i++) {
-          console.log(data[i].text);
+          // console.log(data[i].text);
           $('.container').append('<li><span data-id="'+ data[i].id +'"><i class="far fa-window-close"></i></span> ' + data[i].text + '</li>');
         }
 
