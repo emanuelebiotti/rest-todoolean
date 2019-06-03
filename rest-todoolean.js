@@ -1,8 +1,6 @@
 $(document).ready(function(){
 
-var source = $('#entry-template').html();
-var template = Handlebars.compile(source);
-
+//stampo la mia lista iniziale di impegni
   stampalista();
 
 
@@ -30,7 +28,6 @@ var template = Handlebars.compile(source);
   })
 
   // intercetto il click sulla x di un impegno in lista per cancellarlo
-
   $('.container').on('click', 'span', function(){
     var id_da_cancellare = $(this).attr("data-id");
 
@@ -49,10 +46,36 @@ var template = Handlebars.compile(source);
 
   });
 
-  //funzione per stampare la lista di impegni
+  //  inserisco opzione di modifica delle opzioni
+  $('.modifica').click(function(){
+    var nuovotesto = $('.testonuovo').val();
+    var testodamodificare = $('.opzioni').val();
+    $('.testonuovo').val('');
+    console.log(nuovotesto);
+    console.log(testodamodificare);
 
+    $.ajax({
+      'url': 'http://157.230.17.132:3003/todos/' + testodamodificare,
+      'method':'PUT',
+      'data':{
+        'text': nuovotesto
+      },
+      'success': function(data){
+
+        stampalista();
+
+      },
+      'error': function(res){
+        alert('Errore');
+      }
+    })
+
+  })
+
+  //funzione per stampare la lista di impegni
   function stampalista(){
     $('.container').html('');
+    $('.opzioni').html('');
     $.ajax({
       'url': 'http://157.230.17.132:3003/todos',
       'method':'GET',
@@ -60,8 +83,8 @@ var template = Handlebars.compile(source);
 
         console.log(data);
         for (var i = 0; i<data.length; i++) {
-          // console.log(data[i].text);
           $('.container').append('<li><span data-id="'+ data[i].id +'"><i class="far fa-window-close"></i></span> ' + data[i].text + '</li>');
+          $('.opzioni').append('<option value="'+ data[i].id +'">' + data[i].text + '</option>');
         }
 
       },
@@ -71,8 +94,6 @@ var template = Handlebars.compile(source);
     })
 
   }
-
-
 
 
 });
